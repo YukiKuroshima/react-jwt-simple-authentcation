@@ -25,6 +25,10 @@ app.use(bodyParser.json());
 // use morgan to log requests to the console
 app.use(morgan('dev'));
 
+// Tell the server to look at these directories to look for static files
+app.use(express.static('./server/static/'));
+app.use(express.static('./client/dist/'));
+
 // =================================================================
 // routes ==========================================================
 // =================================================================
