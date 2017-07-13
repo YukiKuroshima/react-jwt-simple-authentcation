@@ -54,6 +54,25 @@ app.get('/', function(req, res) {
 // ---------------------------------------------------------
 var apiRoutes = express.Router(); 
 
+apiRoutes.post('/register', function(req, res) {
+
+	console.log('Register: ' + req.body.name + ' : ' + req.body.password)
+	// create a sample user
+	var newUser = new User({ 
+		name: req.body.name, 
+		password: req.body.password,
+		admin: true 
+	});
+	newUser.save(function(err) {
+		if (err) throw err;
+
+		console.log('User saved successfully');
+		res.json({ success: true });
+	});
+});
+
+
+
 // ---------------------------------------------------------
 // authentication (no middleware necessary since this isnt authenticated)
 // ---------------------------------------------------------
