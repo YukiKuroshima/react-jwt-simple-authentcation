@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 // Tell the server to look at these directories to look for static files
-app.use(express.static('./server/static/'));
+app.use(express.static('./static/'));
 app.use(express.static('./client/dist/'));
 
 // =================================================================
@@ -49,9 +49,9 @@ app.get('/setup', function(req, res) {
 });
 
 // basic route (http://localhost:8080)
-app.get('/', function(req, res) {
-	res.send('Hello! The API is at http://localhost:' + port + '/api');
-});
+// app.get('/', function(req, res) {
+// 	res.send('Hello! The API is at http://localhost:' + port + '/api');
+// });
 
 // ---------------------------------------------------------
 // get an instance of the router for api routes
